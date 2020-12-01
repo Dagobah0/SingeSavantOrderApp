@@ -10,7 +10,7 @@
       <div v-if="loading">Chargement...</div>
       <div v-else v-for="order of orders" v-bind:key="order.id">
         <p>
-          <strong>{{ order.title }}</strong>
+          <strong>{{ order.name }}</strong>
         </p>
       </div>
     </div>    
@@ -29,11 +29,10 @@ export default {
     };
   },
 
-  // Fetches posts when the component is created.
   created() {
-    HTTP.get(`todos`)
+    HTTP.get('/orders')
       .then(response => {
-        this.orders = response.data 
+        this.orders = response.data;
       })
       .catch(e => { 
         console.log(e)

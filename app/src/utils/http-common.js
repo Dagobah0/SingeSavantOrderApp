@@ -1,8 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
+import mock from "./api-mock";
 
 export const HTTP = axios.create({
-  baseURL: `http://jsonplaceholder.typicode.com/`,
+  baseURL: `http://unknow.test/`,
   headers: {
-    Authorization: 'Bearer {token}'
+    Authorization: `Bearer {token}`
   }
-})
+});
+
+mock(HTTP);
